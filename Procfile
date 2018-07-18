@@ -1,1 +1,1 @@
-web: python flask_bot.py
+worker: python flask_bot.py
