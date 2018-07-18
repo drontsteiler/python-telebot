@@ -1,1 +1,1 @@
-worker: gunicorn server:app --log-file=-
+worker: gunicorn flask_bot:app --log-file=-
