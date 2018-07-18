@@ -3,23 +3,35 @@ import os
 import store
 import telebot
 from flask import Flask, request
-
 TOKEN = '693389659:AAFOlWoFA6ZQbq-0GAlXDCYTS6wo9jHR3KI'
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
 
 print(bot.get_me())
 
+####################################
 
-@bot.message_handler(commands=['start'])
-def start(message):
-    bot.reply_to(message, 'Hello, ' + message.from_user.first_name)
+@bot.message_handler(commands=["start"])
+def handle_start(message):
+    user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
+    user_markup.row('/start', '/stop')
+    bot.send_message(message.from_user.id, "Welcome, " + message.from_user.first_name, reply_markup=user_markup)
 
 
-@bot.message_handler(func=lambda message: True, content_types=['text'])
-def echo_message(message):
-    bot.reply_to(message, message.text)
+@bot.message_handler(commands=["stop"])
+def handle_start(message):
+    hide_markup = telebot.types.ReplyKeyboardRemove()
+    bot.send_message(message.chat.id, "..", reply_markup=hide_markup)
 
+
+@bot.message_handler(content_types="text")
+def handle_text(message):
+    bot.send_message(message.chat.id,"""\r
+    <b style='color:red'>You write to me</b>
+    """, parse_mode="HTML")
+    print(message.text)
+
+#######################################
 
 @server.route('/' + TOKEN, methods=['POST'])
 def getMessage():
