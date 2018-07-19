@@ -2,12 +2,16 @@ import os
 import spacy
 import store
 import telebot
+from weather import google_place_api
+from weather import main
 from flask import Flask, request
+
 TOKEN = store.token
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
 
 print(bot.get_me())
+
 
 ####################################
 
@@ -26,10 +30,10 @@ def handle_start(message):
 
 @bot.message_handler(content_types="text")
 def handle_text(message):
-    bot.send_message(message.chat.id,"""\r
-    <b style='color:red'>You write to me</b>
-    """, parse_mode="HTML")
+    google_place_api.place_query = message.text
+    bot.send_message(message.chat.id, main, parse_mode="HTML")
     print(message.text)
+
 
 #######################################
 
