@@ -3,7 +3,6 @@ import requests
 import apikey
 import google_place_api
 
-weather = "no text"
 appid = apikey.openweatherapi
 city_id = 0
 
