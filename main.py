@@ -33,7 +33,7 @@ def weatherapp(text):
 
         if (temp_max > 0):
             temp_max = "+" + str(temp_max)
-
+        weather=""
         weather = "Сегодня в  <b>" + google_place_api.name + "<b>\n" + "<a href = " + icon + "</a>" + str(
             temp) + "\n" + str(conditions).capitalize() + " от " + str(temp_min) + " до " + str(temp_max)
     except Exception as e:
