@@ -2,7 +2,7 @@ import json
 import requests
 import apikey
 import google_place_api
-weather = ""
+weather = "no text"
 appid = apikey.openweatherapi
 city_id = 0
 try:
