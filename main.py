@@ -48,8 +48,8 @@ def weatherapp(text):
 
         if (temp_max > 0):
             temp_max = "+" + str(temp_max)
-        weather=""
-        weather = "Сегодня в  " + name + "\n"  + icon +"\n"+ str(
+        weather = ""
+        weather = "Сегодня в  <b>" + name + "</b>\n<a href = '" + icon + "'>Image road</a>\n" + str(
             temp) + "\n" + str(conditions).capitalize() + " от " + str(temp_min) + " до " + str(temp_max)
         return weather
     except Exception as e:
