@@ -2,6 +2,7 @@ import json
 import requests
 import apikey
 import google_place_api
+
 weather = "no text"
 appid = apikey.openweatherapi
 city_id = 0
@@ -10,7 +11,7 @@ try:
                        params={'lat': google_place_api.lat, 'lon': google_place_api.lon, 'units': 'metric',
                                'lang': 'ru', 'appid': appid})
     data = res.json()
-
+    print(data)
     name = data['name']
     conditions = data['weather'][0]['description']
     temp = data['main']['temp']
