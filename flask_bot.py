@@ -30,8 +30,7 @@ def handle_start(message):
 
 @bot.message_handler(content_types="text")
 def handle_text(message):
-    google_place_api.place_query = message.text
-    bot.send_message(message.chat.id, main.weather, parse_mode="HTML")
+    bot.send_message(message.chat.id, main.weatherapp(message.text), parse_mode="HTML")
     print(message.text)
 
 
