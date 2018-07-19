@@ -38,4 +38,5 @@ def weatherapp(text):
             temp) + "\n" + str(conditions).capitalize() + " от " + str(temp_min) + " до " + str(temp_max)
     except Exception as e:
         print(e)
-        pass
+        passs
+    return weather
