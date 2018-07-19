@@ -4,7 +4,7 @@ import store
 import telebot
 import google_place_api
 import main
-import Flask, request
+from flask import Flask, request
 
 TOKEN = store.token
 bot = telebot.TeleBot(TOKEN)
