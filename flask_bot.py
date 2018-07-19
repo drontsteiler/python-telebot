@@ -1,5 +1,5 @@
 import os
-
+import spacy
 import store
 import telebot
 from flask import Flask, request
