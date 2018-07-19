@@ -30,10 +30,10 @@ def handle_start(message):
 
 @bot.message_handler(content_types="text")
 def handle_text(message):
-    #bot.send_message(message.chat.id, main.weatherapp(message.text), parse_mode="HTML")
+    # bot.send_message(message.chat.id, main.weatherapp(message.text), parse_mode="HTML")
     msg = "error"
     msg = main.weatherapp(message.text)
-    bot.send_message(message.chat.id, msg, parse_mode = "HTML")
+    bot.send_message(message.chat.id, msg)
 
 
 #######################################
