@@ -1,7 +1,7 @@
+import json
 import requests
 import apikey
 import google_place_api
-import json
 
 appid = apikey.openweatherapi
 city_id = 0

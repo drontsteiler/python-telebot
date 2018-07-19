@@ -1,6 +1,6 @@
 import requests
-import apikey
 import json
+import apikey
 
 place_apikey = apikey.google_place_api
 place_query = ""
