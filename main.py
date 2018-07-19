@@ -9,17 +9,34 @@ city_id = 0
 
 
 def weatherapp(text):
+    place_query = ""
+    place_query = text
+    place_apikey = apikey.google_place_api
 
-    google_place_api.place_query = text
+    lat = "lat"
+    lon = "lot"
 
+    try:
+        place_res = requests.get('https://maps.googleapis.com/maps/api/place/textsearch/json',
+                                 params={'query': place_query, 'language': 'ru', 'key': place_apikey})
+        place_data = place_res.json()
+
+        lon = json.dumps(place_data['results'][0]['geometry']['location']['lng'])
+        lat = json.dumps(place_data['results'][0]['geometry']['location']['lat'])
+        name = place_data['results'][0]['name']
+        print(place_data)
+
+    except Exception as e:
+        print("Error requests: ", e)
+    pass
 
     try:
         res = requests.get("http://api.openweathermap.org/data/2.5/weather",
-                           params={'lat': google_place_api.lat, 'lon': google_place_api.lon, 'units': 'metric',
+                           params={'lat': lat, 'lon': lon, 'units': 'metric',
                                    'lang': 'ru', 'appid': appid})
         data = res.json()
         print(data)
-        name = data['name']
+
         conditions = data['weather'][0]['description']
         temp = data['main']['temp']
         temp_min = data['main']['temp_min']
