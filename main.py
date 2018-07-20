@@ -58,7 +58,7 @@ def weatherapp(text):
             if (temp > 0):
                 temp = "+" + str(temp)
 
-            weather = ""
+            weather = "Error 007"
             if date.hour == 12 and date.day == now.day + t:
                 """weather = str(date) + " в  " + name + "\n" + conditions.capitalize() + "\nТемпература: " + str(
                     temp) + "\nОблачность: " + clouds + " %\nСкорость ветра: " + wind_speed + " м/с\nIcon:<a href = '" + im + "'>.</a>\n\n"
