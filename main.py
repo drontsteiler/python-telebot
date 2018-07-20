@@ -30,7 +30,6 @@ def weatherapp(text):
 
     # По широте и долготе определям погоду местности с  помощью OpenWeatherMap API
     try:
-        gradus = b'\xb0'.decode("utf-8", "replace")
         now = datetime.now()
         t = 0
         res = requests.get("https://api.openweathermap.org/data/2.5/forecast",
@@ -61,7 +60,7 @@ def weatherapp(text):
             if date.hour == 12 and date.day == now.day + t:
                 weather = str(
                     date.date()) + " в  " + place_name + "\n" + conditions.capitalize() + "\nТемпература: " + str(
-                    temp) + " " + gradus + " C \nВлажность: " + humi + " %\nОблачность: " + clouds + " %\nСкорость ветра: " + wind_speed + " м/с\n<a href = '" + im + "'>.</a>\n\n"
+                    temp) +  " \xb0 C \nВлажность: " + humi + " %\nОблачность: " + clouds + " %\nСкорость ветра: " + wind_speed + " м/с\n<a href = '" + im + "'>.</a>\n\n"
                 print(weather)
                 break
         return weather
