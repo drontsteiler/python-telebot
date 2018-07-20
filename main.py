@@ -63,6 +63,7 @@ def weatherapp(text):
                 weather = str(date) + " в  " + name + "\n" + conditions.capitalize() + "\nТемпература: " + str(
                     temp) +"\nВлажность: " + humi + "\nОблачность: " + clouds + " %\nСкорость ветра: " + wind_speed + " м/с\nIcon:<a href = '" + im + "'>.</a>\n\n"
                 print(weather)
+                break
         return weather
 
     except Exception as e:
