@@ -54,7 +54,7 @@ def weatherapp(text):
             humi = str(daily['main']['humidity'])
             date = str(daily['dt_txt'])
             date = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
-            im = "https://drive.google.com/open?id=1t5mNdgTCChcWR1spWpMI3drEkvd8fU7K"
+            im = "https://pp.userapi.com/c831408/v831408983/12c192/Rb9Pm42TSqk.jpg"
             if (temp > 0):
                 temp = "+" + str(temp)
             weather = "Error 007"
