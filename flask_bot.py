@@ -2,7 +2,6 @@ import os
 import spacy
 import store
 import telebot
-import google_place_api
 import main
 from flask import Flask, request
 
