@@ -54,11 +54,11 @@ def weatherapp(text):
             humi = str(daily['main']['humidity'])
             date = str(daily['dt_txt'])
             date = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
-            im = "https://pp.userapi.com/c831408/v831408983/12c192/Rb9Pm42TSqk.jpg"
+            im = "https://i.pinimg.com/originals/97/1b/02/971b02d5aacc22155dd10202c918cd16.gif"
             if (temp > 0):
                 temp = "+" + str(temp)
             weather = "Error 007"
-            print(now.day)
+            print("Now time(hour):"+str(now.day))
             if date.hour == 12 and date.day == now.day + t:
                 weather = str(date) + " в  " + name + "\n" + conditions.capitalize() + "\nТемпература: " + str(
                     temp) +"\nВлажность: " + humi + "\nОблачность: " + clouds + " %\nСкорость ветра: " + wind_speed + " м/с\nIcon:<a href = '" + im + "'>.</a>\n\n"
