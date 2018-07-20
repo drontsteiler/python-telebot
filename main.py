@@ -54,16 +54,14 @@ def weatherapp(text):
             humi = str(daily['main']['humidity'])
             date = str(daily['dt_txt'])
             date = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
-            im = "https://media.giphy.com/media/X9wegs6faymLg61qNG/giphy.gif"
+            im = "https://drive.google.com/open?id=1t5mNdgTCChcWR1spWpMI3drEkvd8fU7K"
             if (temp > 0):
                 temp = "+" + str(temp)
             weather = "Error 007"
-            print(str(date) + " в  " + name + "\n" + conditions.capitalize() + "\nТемпература: " + str(
-                temp) + "\nОблачность: " + clouds + " %\nСкорость ветра: " + wind_speed + " м/с\nIcon:<a href = '" + im + "'>.</a>\n\n")
+            print(now.day)
             if date.hour == 12 and date.day == now.day + t:
-                """weather = str(date) + " в  " + name + "\n" + conditions.capitalize() + "\nТемпература: " + str(
-                    temp) + "\nОблачность: " + clouds + " %\nСкорость ветра: " + wind_speed + " м/с\nIcon:<a href = '" + im + "'>.</a>\n\n"
-                    """
+                weather = str(date) + " в  " + name + "\n" + conditions.capitalize() + "\nТемпература: " + str(
+                    temp) +"\nВлажность: " + humi + "\nОблачность: " + clouds + " %\nСкорость ветра: " + wind_speed + " м/с\nIcon:<a href = '" + im + "'>.</a>\n\n"
             weather = "tofvmdfmdfb\nIcon:<a href = '" + im + "'>.</a>"
         return weather
 
