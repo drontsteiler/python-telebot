@@ -22,7 +22,7 @@ def weatherapp(text):
 
         lon = json.dumps(place_data['results'][0]['geometry']['location']['lng'])
         lat = json.dumps(place_data['results'][0]['geometry']['location']['lat'])
-        name = place_data['results'][0]['name']
+        place_name = place_data['results'][0]['name']
         print(place_data)
 
     except Exception as e:
@@ -58,10 +58,9 @@ def weatherapp(text):
             if (temp > 0):
                 temp = "+" + str(temp)
             weather = "Error 007"
-            print("Now time(hour):"+str(now.day))
             if date.hour == 12 and date.day == now.day + t:
-                weather = str(date) + " в  " + name + "\n" + conditions.capitalize() + "\nТемпература: " + str(
-                    temp) +"\nВлажность: " + humi + "\nОблачность: " + clouds + " %\nСкорость ветра: " + wind_speed + " м/с\nIcon:<a href = '" + im + "'>.</a>\n\n"
+                weather = str(date.date()) + " в  " +place_name + "\n" + conditions.capitalize() + "\nТемпература: " + str(
+                    temp) +"\nВлажность: " + humi + " %\nОблачность: " + clouds + " %\nСкорость ветра: " + wind_speed + " м/с\n<a href = '" + im + "'>.</a>\n\n"
                 print(weather)
                 break
         return weather
