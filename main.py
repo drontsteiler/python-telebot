@@ -36,7 +36,8 @@ def weatherapp(text):
                            params={'lat': lat, 'lon': lon, 'units': 'metric',
                                    'lang': 'ru', 'appid': appid})
         data = res.json()
-        day = "сегодня"
+        print(data)
+        day = "завтра"
         if (day == "сегодня"):
             t = 0
         elif (day == "завтра"):
