@@ -1,6 +1,7 @@
 import json
 import requests
 import apikey
+from datetime import datetime
 
 appid = apikey.openweatherapi
 city_id = 0
@@ -10,10 +11,10 @@ def weatherapp(text):
     place_query = ""
     place_query = text
     place_apikey = apikey.google_place_api
-
     lat = "lat"
     lon = "lot"
 
+    # Находим место по названию города с пощью Google Place API
     try:
         place_res = requests.get('https://maps.googleapis.com/maps/api/place/textsearch/json',
                                  params={'query': place_query, 'language': 'ru', 'key': place_apikey})
@@ -28,30 +29,40 @@ def weatherapp(text):
         print("Error requests: ", e)
     pass
 
+    # По широте и долготе определям погоду местности с  помощью OpenWeatherMap API
     try:
-        res = requests.get("http://api.openweathermap.org/data/2.5/weather",
+        now = datetime.now()
+        res = requests.get("https://api.openweathermap.org/data/2.5/forecast",
                            params={'lat': lat, 'lon': lon, 'units': 'metric',
                                    'lang': 'ru', 'appid': appid})
         data = res.json()
-        print(data)
+        day = "сегодня"
+        if (day == "сегодня"):
+            t = 0
+        elif (day == "завтра"):
+            t = 1
+        elif (day == "послезавтра"):
+            t = 2
+        list = data['list']
+        for daily in list:
+            name = str(data['city']['name'])
+            conditions = str(daily['weather'][0]['description'])
+            clouds = str(daily['clouds']['all'])
+            wind_speed = str(daily['wind']['speed'])
+            temp = daily['main']['temp']
+            humi = str(daily['main']['humidity'])
+            date = str(daily['dt_txt'])
+            date = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+            im ="https://media.giphy.com/media/X9wegs6faymLg61qNG/giphy.gif"
+            if (temp > 0):
+                temp = "+" + str(temp)
 
-        conditions = data['weather'][0]['description']
-        temp = data['main']['temp']
-        temp_min = data['main']['temp_min']
-        temp_max = data['main']['temp_max']
-        icon = "http://openweathermap.org/img/w/" + str(data['weather'][0]['icon']) + ".png"
-
-        if (temp > 0):
-            temp = "+" + str(temp)
-        if (temp_min > 0):
-            temp_min = "+" + str(temp_min)
-
-        if (temp_max > 0):
-            temp_max = "+" + str(temp_max)
-        weather = ""
-        weather = "Сегодня в  <b>" + name + "</b>\n<a href = '" + icon + "'>Image road</a>\n" + str(
-            temp) + "\n" + str(conditions).capitalize() + " от " + str(temp_min) + " до " + str(temp_max)
+            weather = ""
+            if date.hour == 12 and date.day == now.day + t:
+                weather = str(date) + " в  " + name + "\n" + conditions.capitalize() + "\nТемпература: " + str(
+                    temp) + "\nОблачность: " + clouds + " %\nСкорость ветра: " + wind_speed + " м/с\nIcon:<a href = '" + im + "'>.</a>\n\n"
         return weather
+
     except Exception as e:
         print(e)
         pass

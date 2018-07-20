@@ -33,7 +33,7 @@ def handle_text(message):
     # bot.send_message(message.chat.id, main.weatherapp(message.text), parse_mode="HTML")
     msg = "error"
     msg = main.weatherapp(message.text)
-    bot.send_message(message.chat.id, msg, parse_mode="HTMLgit")
+    bot.send_message(message.chat.id, msg, parse_mode="HTML")
 
 
 #######################################
