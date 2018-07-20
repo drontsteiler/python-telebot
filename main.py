@@ -37,7 +37,7 @@ def weatherapp(text):
                                    'lang': 'ru', 'appid': appid})
         data = res.json()
         print(data)
-        day = "завтра"
+        day = "послезавтра"
         if (day == "сегодня"):
             t = 0
         elif (day == "завтра"):
@@ -54,14 +54,16 @@ def weatherapp(text):
             humi = str(daily['main']['humidity'])
             date = str(daily['dt_txt'])
             date = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
-            im ="https://media.giphy.com/media/X9wegs6faymLg61qNG/giphy.gif"
+            im = "https://media.giphy.com/media/X9wegs6faymLg61qNG/giphy.gif"
             if (temp > 0):
                 temp = "+" + str(temp)
 
             weather = ""
             if date.hour == 12 and date.day == now.day + t:
-                weather = str(date) + " в  " + name + "\n" + conditions.capitalize() + "\nТемпература: " + str(
+                """weather = str(date) + " в  " + name + "\n" + conditions.capitalize() + "\nТемпература: " + str(
                     temp) + "\nОблачность: " + clouds + " %\nСкорость ветра: " + wind_speed + " м/с\nIcon:<a href = '" + im + "'>.</a>\n\n"
+                    """
+                weather = im
         return weather
 
     except Exception as e:
