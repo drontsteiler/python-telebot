@@ -51,7 +51,7 @@ def weatherapp(text):
             wind_speed = str(daily['wind']['speed'])
             temp = daily['main']['temp']
             humi = str(daily['main']['humidity'])
-            icon = str(daily['main']['icon'])
+            icon =str(daily['weather'][0]['icon'])
             date = str(daily['dt_txt'])
             date = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
             # солнце и снег => https://i.pinimg.com/originals/97/1b/02/971b02d5aacc22155dd10202c918cd16.gif
