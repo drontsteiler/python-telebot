@@ -46,7 +46,6 @@ def weatherapp(text):
             t = 2
         list = data['list']
         for daily in list:
-            print(daily)
             name = str(data['city']['name'])
             conditions = str(daily['weather'][0]['description'])
             clouds = str(daily['clouds']['all'])
@@ -59,6 +58,8 @@ def weatherapp(text):
             if (temp > 0):
                 temp = "+" + str(temp)
             weather = "Error 007"
+            print(str(date) + " в  " + name + "\n" + conditions.capitalize() + "\nТемпература: " + str(
+                temp) + "\nОблачность: " + clouds + " %\nСкорость ветра: " + wind_speed + " м/с\nIcon:<a href = '" + im + "'>.</a>\n\n")
             if date.hour == 12 and date.day == now.day + t:
                 """weather = str(date) + " в  " + name + "\n" + conditions.capitalize() + "\nТемпература: " + str(
                     temp) + "\nОблачность: " + clouds + " %\nСкорость ветра: " + wind_speed + " м/с\nIcon:<a href = '" + im + "'>.</a>\n\n"
