@@ -11,7 +11,7 @@ bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
 print("_______________________________________________________________\n"
       + "Start Telegram Bot in file flask_bot.py" +
-      "_______________________________________________________________\n")
+      "\n_______________________________________________________________")
 
 
 ########################################################################################################
@@ -29,9 +29,10 @@ def handle_start(message):
 @bot.message_handler(content_types="text")
 def handle_text(message):
     msg = "error"
+    print(message.text)
     if message.text == "Что ты умеешь делать?":
         keyboard = types.InlineKeyboardMarkup()
-        weather = types.InlineKeyboardButton(text="Погода")
+        weather = types.InlineKeyboardButton(text="Weather")
         wikipedia = types.InlineKeyboardButton(text="Энциклопедия")
         translate = types.InlineKeyboardButton(text="Переводчик")
         currency = types.InlineKeyboardButton(text="Валюта")
