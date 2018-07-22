@@ -37,7 +37,7 @@ def handle_text(message):
         translate = types.InlineKeyboardButton(text="Переводчик")
         currency = types.InlineKeyboardButton(text="Валюта")
         payment = types.InlineKeyboardButton(text="Платеж")
-        keyboard.add(weather, wikipedia, translate, currency, payment)
+        keyboard.add(weather)
         bot.send_message(message.chat.id, "Я могу делать следующие:", reply_markup=keyboard)
     else:
         msg = main.weatherapp(message.text)
