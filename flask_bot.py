@@ -32,7 +32,7 @@ def handle_text(message):
     print(message.text)
     if message.text == "Что ты умеешь делать?":
         keyboard = types.InlineKeyboardMarkup()
-        weather = types.InlineKeyboardButton(text="Weather")
+        weather = types.InlineKeyboardButton(text="Weather",  callback_data="inline")
         wikipedia = types.InlineKeyboardButton(text="Энциклопедия")
         translate = types.InlineKeyboardButton(text="Переводчик")
         currency = types.InlineKeyboardButton(text="Валюта")
