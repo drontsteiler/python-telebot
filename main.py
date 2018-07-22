@@ -77,7 +77,6 @@ def weatherapp(text):
             for key, val in gifs.items():
                 if (key == icon):
                     im = val
-                    print(val)
                     break
 
             if (temp > 0):
@@ -87,7 +86,6 @@ def weatherapp(text):
                 weather = str(
                     date.date()) + " в  " + place_name + "\n" + conditions.capitalize() + "\nТемпература: " + str(
                     temp) + " \xb0C \nВлажность: " + humi + " %\nОблачность: " + clouds + " %\nСкорость ветра: " + wind_speed + " м/с\n<a href = '" + im + "'>.</a>\n\n"
-                print(weather)
                 break
         return weather
 

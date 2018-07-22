@@ -1,5 +1,6 @@
 import os
 import spacy
+from telebot import types
 import store
 import telebot
 import main
@@ -8,11 +9,12 @@ from flask import Flask, request
 TOKEN = store.token
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
+print("_______________________________________________________________\n"
+      + "Start Telegram Bot in file flask_bot.py" +
+      "_______________________________________________________________\n")
 
-print(bot.get_me())
 
-
-####################################
+########################################################################################################
 
 @bot.message_handler(commands=["start"])
 def handle_start(message):
@@ -29,13 +31,22 @@ def handle_start(message):
 
 @bot.message_handler(content_types="text")
 def handle_text(message):
-    # bot.send_message(message.chat.id, main.weatherapp(message.text), parse_mode="HTML")
     msg = "error"
-    msg = main.weatherapp(message.text)
-    bot.send_message(message.chat.id, msg, parse_mode="HTML")
+    if message.text == "Что ты умеешь делать?":
+        keyboard = types.InlineKeyboardMarkup()
+        weather = types.InlineKeyboardButton(text="Погода")
+        wikipedia = types.InlineKeyboardButton(text="Энциклопедия")
+        translate = types.InlineKeyboardButton(text="Переводчик")
+        currency = types.InlineKeyboardButton(text="Валюта")
+        payment = types.InlineKeyboardButton(text="Платеж")
+        keyboard.add(weather, wikipedia, translate, currency, payment)
+        bot.send_message(message.chat.id, "Я могу делать следующие:", reply_markup=keyboard)
+    else:
+        msg = main.weatherapp(message.text)
+        bot.send_message(message.chat.id, msg, parse_mode="HTML")
 
 
-#######################################
+############################################################################################################################
 
 @server.route('/' + TOKEN, methods=['POST'])
 def getMessage():
