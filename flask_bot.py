@@ -32,16 +32,31 @@ def handle_text(message):
     print("\n\nСообщение от пользователя:" + message.text + "\n\n")
     if message.text == "Что ты умеешь делать?":
         keyboard = types.InlineKeyboardMarkup()
-        weather = types.InlineKeyboardButton(text="Weather", callback_data="inline")
+        weather = types.InlineKeyboardButton(text="Weather", callback_data="weather")
         wikipedia = types.InlineKeyboardButton(text="Энциклопедия", callback_data="inline")
         translate = types.InlineKeyboardButton(text="Переводчик", callback_data="inline")
         currency = types.InlineKeyboardButton(text="Валюта", callback_data="inline")
         payment = types.InlineKeyboardButton(text="Платеж", callback_data="inline")
-        keyboard.add(weather, wikipedia, translate, currency, payment)
+        keyboard.add(weather)
+        keyboard.add(wikipedia)
+        keyboard.add(translate)
+        keyboard.add(currency)
+        keyboard.add(payment)
         bot.send_message(message.chat.id, "Я могу делать следующие:", reply_markup=keyboard)
     else:
         msg = main.weatherapp(message.text)
         bot.send_message(message.chat.id, msg, parse_mode="HTML")
+
+
+@bot.callback_query_handler(func=lambda call: True)
+def callback_inline(call):
+    if call.message:
+        if call.data == "weather":
+            bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
+                                  text="Введите название города")
+    elif call.inline_message_id:
+        if call.data == "weather":
+            bot.edit_message_text(inline_message_id=call.inline_message_id, text="Введите название города")
 
 
 ############################################################################################################################
