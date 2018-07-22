@@ -29,15 +29,15 @@ def handle_start(message):
 @bot.message_handler(content_types="text")
 def handle_text(message):
     msg = "error"
-    print(message.text)
+    print("\n\nСообщение от пользователя:" + message.text + "\n\n")
     if message.text == "Что ты умеешь делать?":
         keyboard = types.InlineKeyboardMarkup()
-        weather = types.InlineKeyboardButton(text="Weather",  callback_data="inline")
-        wikipedia = types.InlineKeyboardButton(text="Энциклопедия")
-        translate = types.InlineKeyboardButton(text="Переводчик")
-        currency = types.InlineKeyboardButton(text="Валюта")
-        payment = types.InlineKeyboardButton(text="Платеж")
-        keyboard.add(weather)
+        weather = types.InlineKeyboardButton(text="Weather", callback_data="inline")
+        wikipedia = types.InlineKeyboardButton(text="Энциклопедия", callback_data="inline")
+        translate = types.InlineKeyboardButton(text="Переводчик", callback_data="inline")
+        currency = types.InlineKeyboardButton(text="Валюта", callback_data="inline")
+        payment = types.InlineKeyboardButton(text="Платеж", callback_data="inline")
+        keyboard.add(weather, wikipedia, translate, currency, payment)
         bot.send_message(message.chat.id, "Я могу делать следующие:", reply_markup=keyboard)
     else:
         msg = main.weatherapp(message.text)
