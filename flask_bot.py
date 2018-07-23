@@ -4,6 +4,7 @@ from telebot import types
 import store
 import telebot
 import main
+from gtts import gTTS
 from flask import Flask, request
 
 TOKEN = store.token
@@ -26,8 +27,9 @@ def handle_start(message):
     bot.send_message(message.chat.id, "..")
 
 
-@bot.message_handler(content_types=['audio'])
+@bot.message_handler(content_types=["audio"])
 def handle_start(message):
+    print("\n\nSending audio\n\n")
     bot.send_message(message.chat.id, "You send to me audio file!")
 
 
