@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d256d755-d97a-4f97-87bd-6029f629301e" name="Default" comment="" />
+    <list default="true" id="d256d755-d97a-4f97-87bd-6029f629301e" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/store.py___jb_tmp___" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask_bot.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +25,8 @@
       <file leaf-file-name="flask_bot.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/flask_bot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+            <state relative-caret-position="56">
+              <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -270,7 +273,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.3293718" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.9083192" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="12" visible="true" weight="0.426146" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="1.0" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49689442" visible="true" weight="0.13388805" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
@@ -571,8 +574,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/flask_bot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+        <state relative-caret-position="56">
+          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
