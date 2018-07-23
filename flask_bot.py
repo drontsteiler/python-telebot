@@ -28,7 +28,7 @@ def handle_start(message):
 
 
 @bot.message_handler(content_types=["audio"])
-def handle_start(message):
+def handle_audio(message):
     print("\n\nSending audio\n\n")
     bot.send_message(message.chat.id, "You send to me audio file!")
 
